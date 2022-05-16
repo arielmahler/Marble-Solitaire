@@ -8,8 +8,8 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
 
   private SlotState[][] board; // the game board model
 
-  private final int boardSize;
-  private int marbles;
+  private final int boardSize; //The longest edge of the board
+  private int marbles; // the number of marbles present on the board
 
   /**
    * Creates a {@code EnglishSolitaireModel} based on default specifications
@@ -56,8 +56,10 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
     }
 
     this.fillBoard(armThickness);
-    this.board[armThickness][armThickness] = SlotState.Empty;
-    this.boardSize = armThickness * 2 + 1;
+    //VERY IMPORTANT: int's automatic removal of 0.5 helps us here, we want the lower bound
+    int midpoint = ((3 * armThickness) / 2) - 1;
+    this.board[midpoint][midpoint] = SlotState.Empty;
+    this.boardSize = (3 * armThickness) - 2; // Found doing math
   }
 
   /**
@@ -75,8 +77,9 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
     }
 
     this.fillBoard(armThick);
+    this.boardSize = (3 * armThick) - 2;
 
-    if (sRow < 0 || sRow > (armThick * 2) || sCol < 0 || sCol > (armThick * 2)) {
+    if (sRow < 0 || sRow >= boardSize || sCol < 0 || sCol >= boardSize) {
       throw new IllegalArgumentException("Invalid empty cell position (" + sRow +
               "," + sCol + ")");
     } else if (this.board[sRow][sCol] == SlotState.Invalid) {
@@ -85,7 +88,6 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
     }
 
     this.board[sRow][sCol] = SlotState.Empty;
-    this.boardSize = armThick * 2 + 1;
   }
 
   @Override
@@ -153,9 +155,9 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
    * Fills the board's 2D-Array with values in a cross shape, additionally setting the score
    * @param armThickness the given arm thickness
    */
-  // For now this does not include error checks, but it probably SHOULD
+  // TODO: For now this does not include error checks, but it probably SHOULD
   private void fillBoard(int armThickness) {
-    int boardLen = armThickness*2 + 1;
+    int boardLen = (3 * armThickness) - 2;
     int armStart = armThickness - 1;
     int armEnd = armThickness*2 - 1;
     this.board = new SlotState[boardLen][boardLen];
