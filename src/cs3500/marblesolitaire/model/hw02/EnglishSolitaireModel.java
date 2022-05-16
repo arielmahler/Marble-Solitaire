@@ -7,7 +7,9 @@ package cs3500.marblesolitaire.model.hw02;
 public class EnglishSolitaireModel implements MarbleSolitaireModel {
 
   private SlotState[][] board; // the game board model
+
   private final int boardSize;
+  private int marbles;
 
   /**
    * Creates a {@code EnglishSolitaireModel} based on default specifications
@@ -17,7 +19,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
 
     this.fillBoard(3);
     this.board[3][3] = SlotState.Empty;
-    this.boardSize = 7; //Hardcoded...
+    this.boardSize = 7; //Hardcoded..
   }
 
   /**
@@ -120,12 +122,13 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
       this.board[fromRow][fromCol] = SlotState.Empty;
       this.board[toRow][toCol] = SlotState.Marble;
       this.board[midRow][midCol] = SlotState.Empty;
-
+      this.marbles--;
     } else {
       throw new IllegalArgumentException("Move must across 2 slots");
     }
   }
 
+  //TODO: complete implementation
   @Override
   public boolean isGameOver() {
     return false;
@@ -143,11 +146,11 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
 
   @Override
   public int getScore() {
-    return 0;
+    return this.marbles;
   }
 
   /**
-   * Fills the board's 2D-Array with values in a cross shape
+   * Fills the board's 2D-Array with values in a cross shape, additionally setting the score
    * @param armThickness the given arm thickness
    */
   // For now this does not include error checks, but it probably SHOULD
@@ -157,11 +160,12 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
     int armEnd = armThickness*2 - 1;
     this.board = new SlotState[boardLen][boardLen];
 
-    for (int i = 0; i < (boardLen - 1); i++) {
-      for (int j = 0; j < (boardLen - 1); j++) {
+    for (int i = 0; i < boardLen; i++) {
+      for (int j = 0; j < boardLen; j++) {
         this.board[i][j] = SlotState.Invalid;
-        if ((i > armStart && i < armEnd) || (j > armStart && j < armEnd)) {
+        if ((i >= armStart && i < armEnd) || (j >= armStart && j < armEnd)) {
           this.board[i][j] = SlotState.Marble;
+          this.marbles++;
         }
       }
     }

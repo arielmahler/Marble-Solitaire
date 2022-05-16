@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="Started, implemented Constructors and move function *UNTESTED*" />
+    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="Started, implemented Constructors and move function *UNTESTED*">
+      <change afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/view/MarbleSolitaireTextView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModelTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,30 +38,78 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="cs3500.marblesolitaire.view" />
       <recent name="cs3500.marblesolitaire.model.hw02" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MarbleSolitaireTextViewTest.testToString">
+    <configuration name="Hw02TypeChecks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Hw02TypeChecks" />
+      <module name="Assignment1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MarbleSolitaireTextViewTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.marblesolitaire.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.view" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.view.MarbleSolitaireTextViewTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MarbleSolitaireTextViewTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.marblesolitaire.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.view" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.view.MarbleSolitaireTextViewTest" />
+      <option name="METHOD_NAME" value="testToString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MarbleSolitaireTextViewTest.testToString" />
+        <item itemvalue="JUnit.MarbleSolitaireTextViewTest" />
+        <item itemvalue="Application.Hw02TypeChecks" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -65,7 +119,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652455179836</updated>
-      <workItem from="1652455181423" duration="16547000" />
+      <workItem from="1652455181423" duration="17321000" />
+      <workItem from="1652713963136" duration="307000" />
+      <workItem from="1652714291417" duration="5821000" />
     </task>
     <task id="LOCAL-00001" summary="Started, implemented Constructors and move function *UNTESTED*">
       <created>1652484253150</created>
@@ -95,5 +151,20 @@
     <MESSAGE value="start" />
     <MESSAGE value="Started, implemented Constructors and move function *UNTESTED*" />
     <option name="LAST_COMMIT_MESSAGE" value="Started, implemented Constructors and move function *UNTESTED*" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cs3500/marblesolitaire/view/MarbleSolitaireTextView.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
