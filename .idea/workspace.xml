@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,72 +62,81 @@
       <recent name="cs3500.marblesolitaire.model.hw02" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MarbleSolitaireTextViewTest">
-    <configuration name="Hw02TypeChecks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Hw02TypeChecks" />
-      <module name="Assignment1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MarbleSolitaireTextViewTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.EnglishSolitaireModelTest">
+    <configuration name="EnglishSolitaireModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.view.*" />
+          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw02.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.view" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.view.MarbleSolitaireTextViewTest" />
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw02" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw02.EnglishSolitaireModelTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MarbleSolitaireTextViewTest.testInit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EnglishSolitaireModelTest.getScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.view.*" />
+          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw02.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.view" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.view.MarbleSolitaireTextViewTest" />
-      <option name="METHOD_NAME" value="testInit" />
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw02" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw02.EnglishSolitaireModelTest" />
+      <option name="METHOD_NAME" value="getScore" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MarbleSolitaireTextViewTest.testInvalidInit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EnglishSolitaireModelTest.invalidMoveMiddle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.view.*" />
+          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw02.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.view" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.view.MarbleSolitaireTextViewTest" />
-      <option name="METHOD_NAME" value="testInvalidInit" />
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw02" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw02.EnglishSolitaireModelTest" />
+      <option name="METHOD_NAME" value="invalidMoveMiddle" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MarbleSolitaireTextViewTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EnglishSolitaireModelTest.isGameOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.view.*" />
+          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw02.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.view" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.view.MarbleSolitaireTextViewTest" />
-      <option name="METHOD_NAME" value="testToString" />
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw02" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw02.EnglishSolitaireModelTest" />
+      <option name="METHOD_NAME" value="isGameOver" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnglishSolitaireModelTest.move" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw02.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw02" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw02.EnglishSolitaireModelTest" />
+      <option name="METHOD_NAME" value="move" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MarbleSolitaireTextViewTest" />
-        <item itemvalue="JUnit.MarbleSolitaireTextViewTest.testToString" />
-        <item itemvalue="JUnit.MarbleSolitaireTextViewTest.testInvalidInit" />
-        <item itemvalue="JUnit.MarbleSolitaireTextViewTest.testInit" />
-        <item itemvalue="Application.Hw02TypeChecks" />
+        <item itemvalue="JUnit.EnglishSolitaireModelTest" />
+        <item itemvalue="JUnit.EnglishSolitaireModelTest.invalidMoveMiddle" />
+        <item itemvalue="JUnit.EnglishSolitaireModelTest.move" />
+        <item itemvalue="JUnit.EnglishSolitaireModelTest.getScore" />
+        <item itemvalue="JUnit.EnglishSolitaireModelTest.isGameOver" />
       </list>
     </recent_temporary>
   </component>
@@ -156,6 +164,7 @@
       <workItem from="1652713963136" duration="307000" />
       <workItem from="1652714291417" duration="5821000" />
       <workItem from="1652722614529" duration="3431000" />
+      <workItem from="1652808653074" duration="5641000" />
     </task>
     <task id="LOCAL-00001" summary="Started, implemented Constructors and move function *UNTESTED*">
       <created>1652484253150</created>

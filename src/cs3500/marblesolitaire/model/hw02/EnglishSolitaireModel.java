@@ -19,6 +19,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
 
     this.fillBoard(3);
     this.board[3][3] = SlotState.Empty;
+    this.marbles -= 1;
     this.boardSize = 7; //Hardcoded..
   }
 
@@ -40,6 +41,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
               "," + sCol + ")");
     } else {
       this.board[sRow][sCol] = SlotState.Empty;
+      this.marbles -= 1;
     }
     this.boardSize = 7; //Hardcoded...
   }
@@ -52,13 +54,14 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
    */
   public EnglishSolitaireModel(int armThickness) throws IllegalArgumentException {
     if (armThickness < 3 || armThickness % 2 == 0) {
-      throw new IllegalArgumentException("Arm Thickness must be a positive odd number");
+      throw new IllegalArgumentException("Arm Thickness must be a positive odd number > 3");
     }
 
     this.fillBoard(armThickness);
     //VERY IMPORTANT: int's automatic removal of 0.5 helps us here, we want the lower bound
     int midpoint = ((3 * armThickness) / 2) - 1;
     this.board[midpoint][midpoint] = SlotState.Empty;
+    this.marbles -= 1;
     this.boardSize = (3 * armThickness) - 2; // Found doing math
   }
 
@@ -73,7 +76,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
   public EnglishSolitaireModel(int armThick, int sRow, int sCol) throws
           IllegalArgumentException {
     if (armThick < 3 || armThick % 2 == 0) {
-      throw new IllegalArgumentException("Arm Thickness must be a positive odd number");
+      throw new IllegalArgumentException("Arm Thickness must be a positive odd number > 3");
     }
 
     this.fillBoard(armThick);
@@ -88,6 +91,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
     }
 
     this.board[sRow][sCol] = SlotState.Empty;
+    this.marbles -= 1;
   }
 
   @Override
@@ -99,7 +103,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
 
     // are these coordinates even valid?
     if (from != SlotState.Marble || to != SlotState.Empty) {
-      throw new IllegalArgumentException("cannot move from " + from + " -> " + to);
+      throw new IllegalArgumentException("Cannot move from " + from + " -> " + to);
     }
 
     int rowDelta = toRow - fromRow;
@@ -126,14 +130,52 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
       this.board[midRow][midCol] = SlotState.Empty;
       this.marbles--;
     } else {
-      throw new IllegalArgumentException("Move must across 2 slots");
+      throw new IllegalArgumentException("Move must only cross 2 slots");
     }
   }
 
-  //TODO: complete implementation
   @Override
   public boolean isGameOver() {
-    return false;
+    //Check every marble:
+    //if the marble contains a marble on one end and empty on other, game is not over
+    for (int i = 0; i < this.boardSize; i++) {
+      for (int j = 0; j < this.boardSize; j++) {
+        if (this.getSlotAt(i, j) == SlotState.Marble) {
+
+          // Set up surrounding slot variables
+          SlotState up = SlotState.Invalid;
+          SlotState down = SlotState.Invalid;
+          SlotState left = SlotState.Invalid;
+          SlotState right = SlotState.Invalid;
+
+          //Ensure that we don't run into a NullPointer Trap!
+          if (i - 1 >= 0) {
+            up = this.getSlotAt(i - 1, j);
+          }
+          if (i + 1 < this.boardSize) {
+            down = this.getSlotAt(i + 1, j);
+          }
+          if (j - 1 >= 0) {
+            left = this.getSlotAt(i, j - 1);
+          }
+          if (j + 1 < this.boardSize) {
+            right = this.getSlotAt(i, j + 1);
+          }
+
+          // All of our move cases
+          if ((up == SlotState.Marble && down == SlotState.Empty) ||
+            (up == SlotState.Empty && down == SlotState.Marble) ||
+            (left == SlotState.Marble && right == SlotState.Empty) ||
+            (left == SlotState.Empty && right == SlotState.Marble)) {
+            // There is at least one legal move, game is not over
+            return false;
+          }
+        }
+      }
+    }
+
+    // At this point, there are no marbles on the board that can move
+    return true;
   }
 
   @Override
