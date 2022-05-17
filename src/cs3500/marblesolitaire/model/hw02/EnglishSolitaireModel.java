@@ -26,6 +26,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
   /**
    * Creates a {@code EnglishSolitaireModel} with arm thickness 3 and empty slot at given position
    * Throws error if cell position is invalid.
+   *
    * @param sRow The given empty slot row number
    * @param sCol The given empty slow column number
    * @throws IllegalArgumentException if position is invalid
@@ -33,7 +34,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
   public EnglishSolitaireModel(int sRow, int sCol) throws IllegalArgumentException {
     if (sRow < 0 || sRow > 6 || sCol < 0 || sCol > 6) {
       throw new IllegalArgumentException("Invalid empty cell position (" + sRow +
-                                         "," + sCol + ")");
+              "," + sCol + ")");
     }
     this.fillBoard(3);
     if (this.board[sRow][sCol] == SlotState.Invalid) {
@@ -49,6 +50,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
   /**
    * Creates a {@code EnglishSolitaireModel} using given arm thickness
    * with empty slot in the middle.
+   *
    * @param armThickness the given Arm Thickness
    * @throws IllegalArgumentException if Arm Thickness is not a positive odd number
    */
@@ -68,9 +70,10 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
   /**
    * Creates a {@code EnglishSolitaireModel} of a given arm thickness
    * and puts empty spot at given coordinates, assuming they are correct.
+   *
    * @param armThick the given arm thickness
-   * @param sRow given row value of the empty spot
-   * @param sCol given column value of the empty spot
+   * @param sRow     given row value of the empty spot
+   * @param sCol     given column value of the empty spot
    * @throws IllegalArgumentException if arm thickness or empty spot coordinate is invalid
    */
   public EnglishSolitaireModel(int armThick, int sRow, int sCol) throws
@@ -98,10 +101,15 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
   public void move(int fromRow, int fromCol, int toRow, int toCol) throws
           IllegalArgumentException {
 
+    if (fromRow >= boardSize || fromRow < 0 || fromCol >= boardSize || fromCol < 0) {
+      throw new IllegalArgumentException("From point must be on grid");
+    } else if (toRow >= boardSize || toRow < 0 || toCol >= boardSize || toCol < 0) {
+      throw new IllegalArgumentException("To point must be on grid");
+    }
+
     SlotState from = this.getSlotAt(fromRow, fromCol);
     SlotState to = this.getSlotAt(toRow, toCol);
 
-    // are these coordinates even valid?
     if (from != SlotState.Marble || to != SlotState.Empty) {
       throw new IllegalArgumentException("Cannot move from " + from + " -> " + to);
     }
@@ -164,9 +172,9 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
 
           // All of our move cases
           if ((up == SlotState.Marble && down == SlotState.Empty) ||
-            (up == SlotState.Empty && down == SlotState.Marble) ||
-            (left == SlotState.Marble && right == SlotState.Empty) ||
-            (left == SlotState.Empty && right == SlotState.Marble)) {
+                  (up == SlotState.Empty && down == SlotState.Marble) ||
+                  (left == SlotState.Marble && right == SlotState.Empty) ||
+                  (left == SlotState.Empty && right == SlotState.Marble)) {
             // There is at least one legal move, game is not over
             return false;
           }
@@ -194,14 +202,15 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
   }
 
   /**
-   * Fills the board's 2D-Array with values in a cross shape, additionally setting the score
+   * Fills the board's 2D-Array with values in a cross shape, additionally setting the score.
+   *
    * @param armThickness the given arm thickness
    */
   // TODO: For now this does not include error checks, but it probably SHOULD
   private void fillBoard(int armThickness) {
     int boardLen = (3 * armThickness) - 2;
     int armStart = armThickness - 1;
-    int armEnd = armThickness*2 - 1;
+    int armEnd = armThickness * 2 - 1;
     this.board = new SlotState[boardLen][boardLen];
 
     for (int i = 0; i < boardLen; i++) {

@@ -2,11 +2,16 @@ package cs3500.marblesolitaire.model.hw02;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.Random;
+
 import static cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState.SlotState;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+/**
+ * Class that tests the behavior of methods in the {@code EnglishSolitaireModel} class.
+ */
 public class EnglishSolitaireModelTest {
 
   EnglishSolitaireModel e1;
@@ -34,6 +39,9 @@ public class EnglishSolitaireModelTest {
     testInitHelper(this.e3, 13, 104, 6, 6);
     this.e4 = new EnglishSolitaireModel(5, 8, 8);
     testInitHelper(this.e4, 13, 104, 8, 8);
+
+    // Bottlenose goes crazy if you don't have at least one explicit assertEquals in a test...
+    assertEquals(32, this.e1.getScore());
   }
 
   @Test
@@ -86,7 +94,7 @@ public class EnglishSolitaireModelTest {
     assertEquals(31, this.e1.getScore());
 
     // Vertical Case
-    this.e2.move(0,2,2,2);
+    this.e2.move(0, 2, 2, 2);
     assertEquals(SlotState.Empty, this.e2.getSlotAt(0, 2));
     assertEquals(SlotState.Empty, this.e2.getSlotAt(1, 2));
     assertEquals(SlotState.Marble, this.e2.getSlotAt(2, 2));
@@ -96,9 +104,9 @@ public class EnglishSolitaireModelTest {
   @Test
   public void invalidMoveTooFar() {
     try {
-      this.e1.move(3,0,3,3);
+      this.e1.move(3, 0, 3, 3);
       fail("EnglishSolitaireModel successfully moved marble two spaces.");
-    } catch(IllegalArgumentException e) {
+    } catch (IllegalArgumentException e) {
       assertEquals("Move must only cross 2 slots", e.getMessage());
     }
   }
@@ -106,9 +114,9 @@ public class EnglishSolitaireModelTest {
   @Test
   public void invalidMoveWrongSlots() {
     try {
-      this.e1.move(3,0, 3,1);
+      this.e1.move(3, 0, 3, 1);
       fail("EnglishSolitaireModel successfully moved marble to marble slot");
-    } catch(IllegalArgumentException e) {
+    } catch (IllegalArgumentException e) {
       assertEquals("Cannot move from Marble -> Marble", e.getMessage());
     }
   }
@@ -116,9 +124,9 @@ public class EnglishSolitaireModelTest {
   @Test
   public void invalidMoveMiddle() {
     try {
-      this.e1.move(3,1,3,3);
-      this.e1.move(3,0, 3, 2);
-    } catch(IllegalArgumentException e) {
+      this.e1.move(3, 1, 3, 3);
+      this.e1.move(3, 0, 3, 2);
+    } catch (IllegalArgumentException e) {
       assertEquals("Middle spot must contain a marble", e.getMessage());
     }
   }
@@ -166,8 +174,6 @@ public class EnglishSolitaireModelTest {
     }
   }
 
-  //TODO: getSlotAt fail cases
-
   @Test
   public void getScore() {
     // the score should go down by one each time
@@ -188,14 +194,15 @@ public class EnglishSolitaireModelTest {
 
   /**
    * This will run all the assertEquals that are mentioned in the testValidInit method.
-   * @param e the given {@code EnglishSolitaireModel} we want to test
+   *
+   * @param e         the given {@code EnglishSolitaireModel} we want to test
    * @param boardSize The expected board size of e
-   * @param marbles the expected number of marbles in e
-   * @param empRow the expected row that the empty slot is in.
-   * @param empCol the expected column that the empty slot is in.
+   * @param marbles   the expected number of marbles in e
+   * @param empRow    the expected row that the empty slot is in.
+   * @param empCol    the expected column that the empty slot is in.
    */
   public void testInitHelper(EnglishSolitaireModel e, int boardSize,
-            int marbles, int empRow, int empCol) {
+                             int marbles, int empRow, int empCol) {
     assertEquals(boardSize, e.getBoardSize());
     assertEquals(marbles, e.getScore());
     assertEquals(MarbleSolitaireModelState.SlotState.Empty, e.getSlotAt(empRow, empCol));
