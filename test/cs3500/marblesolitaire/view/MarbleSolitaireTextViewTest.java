@@ -3,7 +3,9 @@ package cs3500.marblesolitaire.view;
 import org.junit.Before;
 import org.junit.Test;
 import cs3500.marblesolitaire.model.hw02.EnglishSolitaireModel;
+import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModel;
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -12,13 +14,16 @@ import static org.junit.Assert.assertEquals;
 public class MarbleSolitaireTextViewTest {
 
   MarbleSolitaireTextView t1;
+
+  MarbleSolitaireModel m1;
   MarbleSolitaireTextView t2;
   MarbleSolitaireTextView t3;
   MarbleSolitaireTextView t4;
 
   @Before
   public void init() {
-    this.t1 = new MarbleSolitaireTextView(new EnglishSolitaireModel());
+    this.m1 = new EnglishSolitaireModel();
+    this.t1 = new MarbleSolitaireTextView(this.m1);
     this.t2 = new MarbleSolitaireTextView(new EnglishSolitaireModel(2, 2));
     this.t3 = new MarbleSolitaireTextView((new EnglishSolitaireModel(5)));
     this.t4 = new MarbleSolitaireTextView((new EnglishSolitaireModel(5, 7, 7)));
@@ -72,5 +77,9 @@ public class MarbleSolitaireTextViewTest {
             + "O O O O O O O O O O O O O\nO O O O O O O _ O O O O O\nO O O O O O O O O O O O O\n"
             + "        O O O O O\n        O O O O O\n        O O O O O\n        O O O O O",
             this.t4.toString());
+
+    this.m1.move(3, 1, 3, 3);
+    assertEquals("    O O O\n    O O O\nO O O O O O O\n"
+            + "O _ _ O O O O\nO O O O O O O\n    O O O\n    O O O", this.t1.toString());
   }
 }

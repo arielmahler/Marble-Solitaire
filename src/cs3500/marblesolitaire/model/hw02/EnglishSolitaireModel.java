@@ -97,6 +97,23 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
     this.marbles -= 1;
   }
 
+  /**
+   * Moves a marble from the given from slot to the given to slot, if it is valid.
+   * @param fromRow the row number of the position to be moved from
+   *                (starts at 0)
+   * @param fromCol the column number of the position to be moved from
+   *                (starts at 0)
+   * @param toRow   the row number of the position to be moved to
+   *                (starts at 0)
+   * @param toCol   the column number of the position to be moved to
+   *                (starts at 0)
+   * @throws IllegalArgumentException if the given two coordinates: <br>
+   *        - From does not contain a marble, or To is not an empty <br>
+   *        - Given coordinates do not exist on the board <br>
+   *        - The distance is greater than 2 slots away <br>
+   *        - The two coordinates do not share a column or row (diagonal move) <br>
+   *        - The middle slot does not contain a marble
+   */
   @Override
   public void move(int fromRow, int fromCol, int toRow, int toCol) throws
           IllegalArgumentException {
@@ -137,6 +154,8 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
       this.board[toRow][toCol] = SlotState.Marble;
       this.board[midRow][midCol] = SlotState.Empty;
       this.marbles--;
+    } else if (rowDelta != 0 && colDelta != 0) {
+      throw new IllegalArgumentException("Move cannot be diagonal");
     } else {
       throw new IllegalArgumentException("Move must only cross 2 slots");
     }
@@ -206,7 +225,6 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
    *
    * @param armThickness the given arm thickness
    */
-  // TODO: For now this does not include error checks, but it probably SHOULD
   private void fillBoard(int armThickness) {
     int boardLen = (3 * armThickness) - 2;
     int armStart = armThickness - 1;

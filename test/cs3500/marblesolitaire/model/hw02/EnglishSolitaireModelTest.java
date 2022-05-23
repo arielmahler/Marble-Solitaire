@@ -85,18 +85,37 @@ public class EnglishSolitaireModelTest {
   }
 
   @Test
-  public void move() {
-    // Horizontal case
+  public void moveHorizontalLtoR() {
     this.e1.move(3, 1, 3, 3);
     assertEquals(SlotState.Empty, this.e1.getSlotAt(3, 1));
     assertEquals(SlotState.Empty, this.e1.getSlotAt(3, 2));
     assertEquals(SlotState.Marble, this.e1.getSlotAt(3, 3));
     assertEquals(31, this.e1.getScore());
+  }
 
-    // Vertical Case
-    this.e2.move(0, 2, 2, 2);
-    assertEquals(SlotState.Empty, this.e2.getSlotAt(0, 2));
-    assertEquals(SlotState.Empty, this.e2.getSlotAt(1, 2));
+  @Test
+  public void moveHorizontalRtoL() {
+    this.e2.move(2, 4, 2, 2);
+    assertEquals(SlotState.Empty, this.e2.getSlotAt(2, 4));
+    assertEquals(SlotState.Empty, this.e2.getSlotAt(2, 3));
+    assertEquals(SlotState.Marble, this.e2.getSlotAt(2, 2));
+    assertEquals(31, this.e2.getScore());
+  }
+
+  @Test
+  public void moveVerticalUtoD() {
+    this.e1.move(1, 3, 3, 3);
+    assertEquals(SlotState.Empty, this.e1.getSlotAt(1, 3));
+    assertEquals(SlotState.Empty, this.e1.getSlotAt(2, 3));
+    assertEquals(SlotState.Marble, this.e1.getSlotAt(3, 3));
+    assertEquals(31, this.e1.getScore());
+  }
+
+  @Test
+  public void moveVerticalDtoU() {
+    this.e2.move(4, 2, 2, 2);
+    assertEquals(SlotState.Empty, this.e2.getSlotAt(4, 2));
+    assertEquals(SlotState.Empty, this.e2.getSlotAt(3, 2));
     assertEquals(SlotState.Marble, this.e2.getSlotAt(2, 2));
     assertEquals(31, this.e2.getScore());
   }
@@ -112,9 +131,39 @@ public class EnglishSolitaireModelTest {
   }
 
   @Test
-  public void invalidMoveWrongSlots() {
+  public void invalidMoveDNEFrom() {
     try {
-      this.e1.move(3, 0, 3, 1);
+      this.e1.move(30, 2, 3, 3);
+      fail("EnglishSolitaireModel successfully moved from nonexistent slot");
+    } catch (IllegalArgumentException e) {
+      assertEquals("From point must be on grid", e.getMessage());
+    }
+  }
+
+  @Test
+  public void invalidMoveDNETo() {
+    try {
+      this.e1.move(3, 1, 13, 3);
+      fail("EnglishSolitaireModel successfully moved to nonexistent slot");
+    } catch (IllegalArgumentException e) {
+      assertEquals("To point must be on grid", e.getMessage());
+    }
+  }
+
+  @Test
+  public void invalidMoveFrom() {
+    try {
+      this.e1.move(3, 3, 1, 3);
+      fail("EnglishSolitaireModel successfully moved empty to marble slot");
+    } catch (IllegalArgumentException e) {
+      assertEquals("Cannot move from Empty -> Marble", e.getMessage());
+    }
+  }
+
+  @Test
+  public void invalidMoveTo() {
+    try {
+      this.e1.move(3, 0, 3, 2);
       fail("EnglishSolitaireModel successfully moved marble to marble slot");
     } catch (IllegalArgumentException e) {
       assertEquals("Cannot move from Marble -> Marble", e.getMessage());
@@ -128,6 +177,16 @@ public class EnglishSolitaireModelTest {
       this.e1.move(3, 0, 3, 2);
     } catch (IllegalArgumentException e) {
       assertEquals("Middle spot must contain a marble", e.getMessage());
+    }
+  }
+
+  @Test
+  public void invalidMoveDiagonal() {
+    try {
+      this.e1.move(2, 2, 3, 3);
+      fail("EnglishSolitaireModel successfully moved diagonally");
+    } catch (IllegalArgumentException e) {
+      assertEquals("Move cannot be diagonal", e.getMessage());
     }
   }
 
