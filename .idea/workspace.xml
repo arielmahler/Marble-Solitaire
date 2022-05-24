@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;write playGame() (tests)&#10;playGame() tests">
-      <change afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/main.java" afterDir="false" />
+    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;playGame() tests&#10;- investigate &quot;q&quot; functionality&#10;playGame() tests">
+      <change afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/controller/MarbleSolitaireControllerImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/controller/MarbleSolitaireControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/controller/MarbleSolitaireControllerImpl.java" afterDir="false" />
     </list>
@@ -14,9 +14,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -37,33 +37,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="cs3500.marblesolitaire.controller" />
       <recent name="cs3500.marblesolitaire.view" />
       <recent name="cs3500.marblesolitaire.model.hw02" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main">
+  <component name="RunManager" selected="JUnit.MarbleSolitaireControllerImplTest.playGameOutOfInputs">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.main" />
       <module name="Assignment1" />
@@ -77,64 +79,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EnglishSolitaireModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MarbleSolitaireControllerImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw02.*" />
+          <option name="PATTERN" value="cs3500.marblesolitaire.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw02" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw02.EnglishSolitaireModelTest" />
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.controller" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.controller.MarbleSolitaireControllerImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EnglishSolitaireModelTest.invalidMoveDiagonal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MarbleSolitaireControllerImplTest.playGameNegStartRow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw02.*" />
+          <option name="PATTERN" value="cs3500.marblesolitaire.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw02" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw02.EnglishSolitaireModelTest" />
-      <option name="METHOD_NAME" value="invalidMoveDiagonal" />
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.controller" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.controller.MarbleSolitaireControllerImplTest" />
+      <option name="METHOD_NAME" value="playGameNegStartRow" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EnglishSolitaireModelTest.invalidMoveFrom" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MarbleSolitaireControllerImplTest.playGameOutOfInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw02.*" />
+          <option name="PATTERN" value="cs3500.marblesolitaire.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw02" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw02.EnglishSolitaireModelTest" />
-      <option name="METHOD_NAME" value="invalidMoveFrom" />
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.controller" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.controller.MarbleSolitaireControllerImplTest" />
+      <option name="METHOD_NAME" value="playGameOutOfInputs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MarbleSolitaireTextViewTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MarbleSolitaireControllerImplTest.playGameOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.view.*" />
+          <option name="PATTERN" value="cs3500.marblesolitaire.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.view" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.view.MarbleSolitaireTextViewTest" />
-      <option name="METHOD_NAME" value="testToString" />
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.controller" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.controller.MarbleSolitaireControllerImplTest" />
+      <option name="METHOD_NAME" value="playGameOver" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -142,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.playGameOutOfInputs" />
+        <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.playGameOver" />
+        <item itemvalue="JUnit.MarbleSolitaireControllerImplTest" />
+        <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.playGameNegStartRow" />
         <item itemvalue="Application.main" />
-        <item itemvalue="JUnit.MarbleSolitaireTextViewTest.testToString" />
-        <item itemvalue="JUnit.EnglishSolitaireModelTest.invalidMoveFrom" />
-        <item itemvalue="JUnit.EnglishSolitaireModelTest" />
-        <item itemvalue="JUnit.EnglishSolitaireModelTest.invalidMoveDiagonal" />
       </list>
     </recent_temporary>
   </component>
@@ -168,6 +170,7 @@
       <workItem from="1653162825223" duration="15000" />
       <workItem from="1653163081434" duration="3000" />
       <workItem from="1653323194418" duration="2209000" />
+      <workItem from="1653419122796" duration="7050000" />
     </task>
     <task id="LOCAL-00001" summary="Started, implemented Constructors and move function *UNTESTED*">
       <created>1652484253150</created>
@@ -190,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653410934937</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;playGame() tests&#10;- investigate &quot;q&quot; functionality&#10;playGame() tests">
+      <created>1653414827688</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653414827688</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +222,8 @@
     <MESSAGE value="Started, implemented Constructors and move function *UNTESTED*" />
     <MESSAGE value="All done?" />
     <MESSAGE value="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;write playGame() (tests)&#10;playGame() tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;write playGame() (tests)&#10;playGame() tests" />
+    <MESSAGE value="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;playGame() tests&#10;- investigate &quot;q&quot; functionality&#10;playGame() tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;playGame() tests&#10;- investigate &quot;q&quot; functionality&#10;playGame() tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

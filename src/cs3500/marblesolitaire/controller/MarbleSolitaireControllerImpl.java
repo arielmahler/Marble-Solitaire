@@ -1,6 +1,7 @@
 package cs3500.marblesolitaire.controller;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModel;
@@ -12,6 +13,14 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
   private final MarbleSolitaireView view;
   private final Readable input;
 
+  /**
+   * Creates a new {@code MarbleSolitaireControllerImpl} with given model and view.
+   * Uses in as input.
+   * @param model the given MarbleSolitaire model
+   * @param view the given MarbleSolitaire view
+   * @param in the given input Readable
+   * @throws IllegalArgumentException if any of the arguments are null
+   */
   public MarbleSolitaireControllerImpl(MarbleSolitaireModel model, MarbleSolitaireView view,
                                        Readable in) throws IllegalArgumentException {
     // While it means more lines of code, I appreciate decent error messages!
@@ -40,31 +49,17 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
     int[] values = new int[4];
 
     // the input prompts for the user
-    String[] inputPrompts = {"From Row: ", "From Column: ", "To Row: ", "To Column: "};
+    String[] inputPrompts = {"From Row:\n", "From Column:\n", "To Row:\n", "To Column:\n"};
 
     while (!gameOver) {
 
       //render the current state of the game
-      try {
-        this.view.renderBoard();
-      } catch (IOException e) {
-        throw new IllegalStateException(e.getMessage());
-      }
+      transmitBoard();
+      transmit("\nScore: " + this.model.getScore() + "\n");
 
-      // transmit the score as "Score: N"
-      try {
-        //need the extra \n to move lines from the board!
-        this.view.renderMessage("\nScore: " + this.model.getScore() + "\n");
-      } catch (IOException e) {
-        throw new IllegalStateException(e.getMessage());
-      }
-
-      // obtain the next user input through the Readable
-      // This will be in the format "row-num col-num row-num col-num"
-      // all starting at 1 (meaning adjust the input to -1)
-      // or, "q" and "Q", representing end game
-      // if an input is invalid, ask for THAT input again (indicating loops?)
       boolean validMove = false;
+      boolean quit = false;
+
       // MOVE LOOP ----------------------------------------------------------------------------
       while (!validMove) {
 
@@ -75,25 +70,31 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
         while (!fullInput) {
           transmit(inputPrompts[inputCount]);
           if (!scan.hasNextInt()) {
-            if (scan.next().equalsIgnoreCase("q")) {
-              //TODO: apparently return; should NOT be used :(
-              transmit("Game quit!\nState of game when quit:\n");
-              transmitBoard();
-              transmit("\nScore: " + this.model.getScore());
-              //gameOver = true; ???
-              return;
+
+            String next;
+            try {
+              next = scan.next();
+            } catch (NoSuchElementException e) {
+              throw new IllegalStateException("Input is exhausted");
+            }
+
+            if (next.equalsIgnoreCase("q")) {
+              quit = true;
+              break; //leave input loop
             } else {
               transmit("Invalid choice: Try again\n");
             }
-          } else { //logically, this means next() is an int
+          } else {
+            //scan is either empty, or an integer
             int value = scan.nextInt();
 
-            try {
-              values[inputCount] = value - 1;
-              inputCount++;
-            } catch (NullPointerException e) {
-              throw new IllegalStateException("inputCount should not be" + inputCount);
+            if (value < 1) {
+              transmit("Invalid choice: Try again\n");
+              continue;
             }
+
+            values[inputCount] = value - 1;
+            inputCount++;
             if (inputCount == 4) {
               //we have now successfully collected 4 inputs and filled values
               fullInput = true;
@@ -102,31 +103,28 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
         }
         // INPUT LOOP -------------------------------------------------------------------------
 
+        if (quit) {
+          break;
+        }
+
         //pass info on to the model to make the move (or fail)
-        // at this point we assume that all 4 variables were chosen
         try {
           this.model.move(values[0], values[1], values[2], values[3]);
           // the move worked without throwing an exception, it is valid
           validMove = true;
         } catch (IllegalArgumentException e) {
-          // arguments were incorrect
           transmit("Invalid move. Play again. " + e.getMessage() + "\n");
-          fullInput = false;
         }
-        //the end of the turn, assuming everything worked out.
       }
       // MOVE LOOP ----------------------------------------------------------------------------
 
       // Finally: evaluate the board
-      if (this.model.isGameOver() || gameOver) {
+      if (this.model.isGameOver() || quit) {
         String gameOverMessage;
-        // Determine the ending message
-        if (gameOver) {
-          // this is only reachable if you hit "q"
+        gameOver = true;
+        if (quit) {
           gameOverMessage = "Game quit!\nState of game when quit:\n";
         } else {
-          //otherwise, the game is simply over
-          gameOver = true;
           gameOverMessage = "Game over!\n";
         }
         transmit(gameOverMessage);
