@@ -8,9 +8,9 @@ import cs3500.marblesolitaire.view.MarbleSolitaireView;
 
 public class MarbleSolitaireControllerImpl implements MarbleSolitaireController {
 
-  private MarbleSolitaireModel model;
-  private MarbleSolitaireView view;
-  private Readable input;
+  private final MarbleSolitaireModel model;
+  private final MarbleSolitaireView view;
+  private final Readable input;
 
   public MarbleSolitaireControllerImpl(MarbleSolitaireModel model, MarbleSolitaireView view,
                                        Readable in) throws IllegalArgumentException {
@@ -28,8 +28,6 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
     this.input = in;
   }
 
-  //TODO: I either need another constructor, or to create a mock implementation
-
   @Override
   public void playGame() throws IllegalStateException {
     //Scanner for the Readable
@@ -38,17 +36,13 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
     boolean gameOver = false;
 
     // the values that we will use to hold user input from turn to turn.
-    int startRow;
-    int startCol;
-    int endRow;
-    int endCol;
+    // 0: startRow 1: startCol 2: endRow 3: endCol
+    int[] values = new int[4];
+
+    // the input prompts for the user
+    String[] inputPrompts = {"From Row: ", "From Column: ", "To Row: ", "To Column: "};
 
     while (!gameOver) {
-      // this insures a loop invariant for all 4 inputs
-      startRow = -1;
-      startCol = -1;
-      endRow = -1;
-      endCol = -1;
 
       //render the current state of the game
       try {
@@ -70,39 +64,62 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
       // all starting at 1 (meaning adjust the input to -1)
       // or, "q" and "Q", representing end game
       // if an input is invalid, ask for THAT input again (indicating loops?)
-      boolean fullInput = false;
-      while(!fullInput) {
+      boolean validMove = false;
+      // MOVE LOOP ----------------------------------------------------------------------------
+      while (!validMove) {
 
-        if (!scan.hasNextInt()) {
-          if (scan.next().toLowerCase().equals("q")) {
-            gameOver = true;
-          } else {
-            //this is both not an integer or a quit command, ask again
-          }
-        } else {
-          // this value is an integer
-          int value = scan.nextInt();
+        boolean fullInput = false;
+        int inputCount = 0; //number of SUCCESSFUL inputs gathered
 
-          //TODO: This is poopy code, don't know how to fix YET.
-          if (startRow == -1) {
+        // INPUT LOOP -------------------------------------------------------------------------
+        while (!fullInput) {
+          transmit(inputPrompts[inputCount]);
+          if (!scan.hasNextInt()) {
+            if (scan.next().equalsIgnoreCase("q")) {
+              //TODO: apparently return; should NOT be used :(
+              transmit("Game quit!\nState of game when quit:\n");
+              transmitBoard();
+              transmit("\nScore: " + this.model.getScore());
+              //gameOver = true; ???
+              return;
+            } else {
+              transmit("Invalid choice: Try again\n");
+            }
+          } else { //logically, this means next() is an int
+            int value = scan.nextInt();
 
+            try {
+              values[inputCount] = value - 1;
+              inputCount++;
+            } catch (NullPointerException e) {
+              throw new IllegalStateException("inputCount should not be" + inputCount);
+            }
+            if (inputCount == 4) {
+              //we have now successfully collected 4 inputs and filled values
+              fullInput = true;
+            }
           }
         }
-      }
+        // INPUT LOOP -------------------------------------------------------------------------
 
-      //pass info on to the model to make the move (or fail)
-      // at this point we assume that all 4 variables were chosen
-      try {
-        this.model.move(startRow, startCol, endRow, endCol);
-      } catch (IllegalArgumentException e) {
-        //TODO: if this is read that means the argument inputs were incorrect
+        //pass info on to the model to make the move (or fail)
+        // at this point we assume that all 4 variables were chosen
+        try {
+          this.model.move(values[0], values[1], values[2], values[3]);
+          // the move worked without throwing an exception, it is valid
+          validMove = true;
+        } catch (IllegalArgumentException e) {
+          // arguments were incorrect
+          transmit("Invalid move. Play again. " + e.getMessage() + "\n");
+          fullInput = false;
+        }
+        //the end of the turn, assuming everything worked out.
       }
-
-      //in theory, the fullInput loop should end here...
+      // MOVE LOOP ----------------------------------------------------------------------------
 
       // Finally: evaluate the board
       if (this.model.isGameOver() || gameOver) {
-        String gameOverMessage = "";
+        String gameOverMessage;
         // Determine the ending message
         if (gameOver) {
           // this is only reachable if you hit "q"
@@ -112,14 +129,37 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
           gameOver = true;
           gameOverMessage = "Game over!\n";
         }
-        try {
-          this.view.renderMessage(gameOverMessage);
-          this.view.renderBoard();
-          this.view.renderMessage("\nScore: " + this.model.getScore());
-        } catch (IOException e) {
-          throw new IllegalStateException(e.getMessage());
-        }
+        transmit(gameOverMessage);
+        transmitBoard();
+        transmit("\nScore: " + this.model.getScore());
       }
+    }
+  }
+
+  /**
+   * can be used to send a message through this view, while changing IOExceptions to
+   * IllegalStateExceptions.
+   * @param message the given message
+   * @throws IllegalStateException if there is an IOException
+   */
+  private void transmit(String message) throws IllegalStateException {
+    try {
+      this.view.renderMessage(message);
+    } catch(IOException e) {
+      throw new IllegalStateException(e.getMessage());
+    }
+  }
+
+  /**
+   * can be used to send the board through this view, while changing IOExceptions to
+   * IllegalStateExceptions.
+   * @throws IllegalStateException if there is an IOException
+   */
+  private void transmitBoard() throws IllegalStateException {
+    try {
+      this.view.renderBoard();
+    } catch(IOException e) {
+      throw new IllegalStateException(e.getMessage());
     }
   }
 }
