@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="All done?">
+    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="Almost done with the testing files, implementation for EnglishSolitaireModel is complete BUT UNTESTED. Recommend looking at assignment instructions.">
+      <change afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/controller/MarbleSolitaireController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/controller/MarbleSolitaireControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/view/MarbleSolitaireTextView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/view/MarbleSolitaireTextView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/view/MarbleSolitaireView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/view/MarbleSolitaireView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +17,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

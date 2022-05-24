@@ -1,5 +1,7 @@
 package cs3500.marblesolitaire.view;
 
+import java.io.IOException;
+
 /**
  * This interface represents operations that should be offered by
  * a view for the Marble solitaire game.
@@ -14,5 +16,19 @@ public interface MarbleSolitaireView {
    * @return the game state as a string
    */
   String toString();
+
+  /**
+   * Render the board to the provided data destination. The board should be rendered exactly
+   * in the format produced by the toString method above
+   * @throws IOException if transmission of the board to the provided data destination fails
+   */
+  void renderBoard() throws IOException;
+
+  /**
+   * Render a specific message to the provided data destination.
+   * @param message the message to be transmitted
+   * @throws IOException if transmission of the board to the provided data destination fails
+   */
+  void renderMessage(String message) throws IOException;
 
 }

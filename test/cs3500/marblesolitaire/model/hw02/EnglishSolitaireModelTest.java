@@ -241,14 +241,6 @@ public class EnglishSolitaireModelTest {
     assertEquals(31, this.e1.getScore());
     this.e1.move(2, 3, 4, 3);
     assertEquals(30, this.e1.getScore());
-    this.e1.move(0, 3, 2, 3);
-    assertEquals(29, this.e1.getScore());
-    this.e1.move(3, 5, 3, 3);
-    assertEquals(28, this.e1.getScore());
-    this.e1.move(3, 2, 3, 4);
-    assertEquals(27, this.e1.getScore());
-    this.e1.move(3, 0, 3, 2);
-    assertEquals(26, this.e1.getScore());
   }
 
   /**

@@ -1,5 +1,7 @@
 package cs3500.marblesolitaire.view;
 
+import java.io.IOException;
+
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState;
 import static cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState.SlotState;
 
@@ -9,9 +11,11 @@ import static cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState.SlotSt
 public class MarbleSolitaireTextView implements MarbleSolitaireView {
 
   private MarbleSolitaireModelState board;
+  private Appendable output;
 
   /**
-   * Creates a {@code MarbleSolitaireTextView} using the given model as the game-board.
+   * Creates a {@code MarbleSolitaireTextView} using the given model as the game-board and
+   * System.out as the output.
    * @param model the given game that needs to be viewed
    * @throws IllegalArgumentException if the game is null
    */
@@ -21,6 +25,34 @@ public class MarbleSolitaireTextView implements MarbleSolitaireView {
       throw new IllegalArgumentException("Model cannot be null");
     }
     this.board = model;
+    this.output = System.out;
+  }
+
+  /**
+   * Creates a {@code MarbleSolitaireTextView} using the given model as the game-board and
+   * given {@code Appendable} as the output.
+   * @param model the given game that needs to be viewed
+   * @param out the {@code Appendable} that this view will write to
+   * @throws IllegalArgumentException if the model or appendable is null
+   */
+  public MarbleSolitaireTextView(MarbleSolitaireModelState model, Appendable out)
+          throws IllegalArgumentException {
+    if (model == null) {
+      throw new IllegalArgumentException("Model cannot be null");
+    } else if (out == null) {
+      throw new IllegalArgumentException("Appendable cannot be null");
+    }
+    this.board = model;
+    this.output = out;
+  }
+
+  public void renderBoard() throws IOException {
+    String board = this.toString();
+    this.output.append(board);
+  }
+
+  public void renderMessage(String message) throws IOException {
+    this.output.append(message);
   }
 
   @Override
