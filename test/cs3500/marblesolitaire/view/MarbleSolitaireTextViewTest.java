@@ -2,14 +2,10 @@ package cs3500.marblesolitaire.view;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.IOException;
-
 import cs3500.marblesolitaire.CorruptAppendable;
 import cs3500.marblesolitaire.model.hw02.EnglishSolitaireModel;
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModel;
-import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -86,7 +82,7 @@ public class MarbleSolitaireTextViewTest {
             this.t3.toString());
     this.t4 = new MarbleSolitaireTextView(new EnglishSolitaireModel(5, 8, 10),
             this.a4);
-     assertEquals("        O O O O O\n        O O O O O\n        O O O O O\n"
+    assertEquals("        O O O O O\n        O O O O O\n        O O O O O\n"
             + "        O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
             + "O O O O O O O O O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O _ O O\n"
             + "        O O O O O\n        O O O O O\n        O O O O O\n        O O O O O",
@@ -154,14 +150,14 @@ public class MarbleSolitaireTextViewTest {
     assertEquals("    O O O\n    O O O\nO O _ O O O O\n"
             + "O O O O O O O\nO O O O O O O\n    O O O\n    O O O", this.a2.toString());
     assertEquals("        O O O O O\n        O O O O O\n        O O O O O\n"
-                    + "        O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
-                    + "O O O O O O _ O O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
-                    + "        O O O O O\n        O O O O O\n        O O O O O\n        O O O O O",
+            + "        O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
+            + "O O O O O O _ O O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
+            + "        O O O O O\n        O O O O O\n        O O O O O\n        O O O O O",
             this.a3.toString());
     assertEquals("        O O O O O\n        O O O O O\n        O O O O O\n"
-                    + "        O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
-                    + "O O O O O O O O O O O O O\nO O O O O O O _ O O O O O\nO O O O O O O O O O O O O\n"
-                    + "        O O O O O\n        O O O O O\n        O O O O O\n        O O O O O",
+            + "        O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
+            + "O O O O O O O O O O O O O\nO O O O O O O _ O O O O O\nO O O O O O O O O O O O O\n"
+            + "        O O O O O\n        O O O O O\n        O O O O O\n        O O O O O",
             this.a4.toString());
   }
 

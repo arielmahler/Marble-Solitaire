@@ -7,6 +7,9 @@ import java.util.Scanner;
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModel;
 import cs3500.marblesolitaire.view.MarbleSolitaireView;
 
+/**
+ * Represents the controller for the Marble Solitaire game.
+ */
 public class MarbleSolitaireControllerImpl implements MarbleSolitaireController {
 
   private final MarbleSolitaireModel model;
@@ -143,7 +146,7 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
   private void transmit(String message) throws IllegalStateException {
     try {
       this.view.renderMessage(message);
-    } catch(IOException e) {
+    } catch (IOException e) {
       throw new IllegalStateException(e.getMessage());
     }
   }
@@ -156,7 +159,7 @@ public class MarbleSolitaireControllerImpl implements MarbleSolitaireController 
   private void transmitBoard() throws IllegalStateException {
     try {
       this.view.renderBoard();
-    } catch(IOException e) {
+    } catch (IOException e) {
       throw new IllegalStateException(e.getMessage());
     }
   }

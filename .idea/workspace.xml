@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;playGame() tests&#10;- investigate &quot;q&quot; functionality&#10;playGame() tests">
-      <change afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/CorruptAppendable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/controller/EnglishSolitaireMock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/controller/MarbleSolitaireViewMock.java" afterDir="false" />
+    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="---- ASSIGNMENT 2 ----&#10;All that is left is to double check ControllerImplTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/controller/MarbleSolitaireControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/controller/MarbleSolitaireControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Hw03TypeChecks.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Hw03TypeChecks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/controller/MarbleSolitaireControllerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/controller/MarbleSolitaireControllerImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/controller/MarbleSolitaireViewMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/controller/MarbleSolitaireViewMock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +69,7 @@
       <recent name="cs3500.marblesolitaire.model.hw02" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MarbleSolitaireControllerImplTest">
+  <component name="RunManager" selected="JUnit.MarbleSolitaireControllerImplTest.playGameOver">
     <configuration name="MarbleSolitaireControllerImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
@@ -84,7 +85,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MarbleSolitaireControllerImplTest.playGameCorruptOutput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MarbleSolitaireControllerImplTest.playGameOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
@@ -94,13 +95,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.controller" />
       <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.controller.MarbleSolitaireControllerImplTest" />
-      <option name="METHOD_NAME" value="playGameCorruptOutput" />
+      <option name="METHOD_NAME" value="playGameOver" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MarbleSolitaireControllerImplTest.testInitModelConstructors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MarbleSolitaireControllerImplTest.playGameValidMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
@@ -110,7 +111,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.controller" />
       <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.controller.MarbleSolitaireControllerImplTest" />
-      <option name="METHOD_NAME" value="testInitModelConstructors" />
+      <option name="METHOD_NAME" value="playGameValidMove" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -150,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.playGameOver" />
+        <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.playGameValidMove" />
         <item itemvalue="JUnit.MarbleSolitaireControllerImplTest" />
         <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.testInputsMove" />
         <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.testInputsTransmit" />
-        <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.playGameCorruptOutput" />
-        <item itemvalue="JUnit.MarbleSolitaireControllerImplTest.testInitModelConstructors" />
       </list>
     </recent_temporary>
   </component>
@@ -177,6 +178,7 @@
       <workItem from="1653163081434" duration="3000" />
       <workItem from="1653323194418" duration="2209000" />
       <workItem from="1653419122796" duration="7050000" />
+      <workItem from="1653511875346" duration="1005000" />
     </task>
     <task id="LOCAL-00001" summary="Started, implemented Constructors and move function *UNTESTED*">
       <created>1652484253150</created>
@@ -206,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653414827688</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="---- ASSIGNMENT 2 ----&#10;All that is left is to double check ControllerImplTest">
+      <created>1653498562892</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653498562892</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +238,8 @@
     <MESSAGE value="All done?" />
     <MESSAGE value="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;write playGame() (tests)&#10;playGame() tests" />
     <MESSAGE value="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;playGame() tests&#10;- investigate &quot;q&quot; functionality&#10;playGame() tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;playGame() tests&#10;- investigate &quot;q&quot; functionality&#10;playGame() tests" />
+    <MESSAGE value="---- ASSIGNMENT 2 ----&#10;All that is left is to double check ControllerImplTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="---- ASSIGNMENT 2 ----&#10;All that is left is to double check ControllerImplTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

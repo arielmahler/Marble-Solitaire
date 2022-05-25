@@ -3,7 +3,6 @@ package cs3500.marblesolitaire.controller;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.StringReader;
-
 import cs3500.marblesolitaire.CorruptAppendable;
 import cs3500.marblesolitaire.model.hw02.EnglishSolitaireModel;
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModel;
@@ -91,15 +90,15 @@ public class MarbleSolitaireControllerImplTest {
 
   @Test
   public void playGameNegStartRow() {
-      this.r1 = new StringReader("-1 q");
-      this.c1 = new MarbleSolitaireControllerImpl(this.m1, this.v1, this.r1);
-      this.c1.playGame();
+    this.r1 = new StringReader("-1 q");
+    this.c1 = new MarbleSolitaireControllerImpl(this.m1, this.v1, this.r1);
+    this.c1.playGame();
 
-      String log = this.a1.toString();
-      String[] splitLog = log.split("\n");
+    String log = this.a1.toString();
+    String[] splitLog = log.split("\n");
 
-      // Bear in mind that since 'From Row:' doesn't have a \n in it, it will be in the entry
-      assertEquals("Invalid choice: Try again", splitLog[9]);
+    // Bear in mind that since 'From Row:' doesn't have a \n in it, it will be in the entry
+    assertEquals("Invalid choice: Try again", splitLog[9]);
   }
 
   @Test
@@ -254,9 +253,11 @@ public class MarbleSolitaireControllerImplTest {
 
     String log = this.a1.toString();
     String[] splitLog = log.split("\n");
+    String[] splitAnswer = this.v1.toString().split("\n");
 
-    //FIXME: maybe make a greater test of accuracy
-    assertEquals("O _ _ O O O O", splitLog[15]);
+    for (int i = 0; i < 7; i++) {
+      assertEquals(splitAnswer[i], splitLog[12 + i]);
+    }
   }
 
   @Test
@@ -269,8 +270,12 @@ public class MarbleSolitaireControllerImplTest {
     String log = this.a1.toString();
     String[] splitLog = log.split("\n");
 
-    //FIXME: maybe make a greater test of accuracy
     assertEquals("Game over!", splitLog[72]);
+    String[] splitAnswer = this.v1.toString().split("\n");
+
+    for (int i = 0; i < 7; i++) {
+      assertEquals(splitAnswer[i], splitLog[73 + i]);
+    }
     assertEquals("Score: 26", splitLog[80]);
   }
 
