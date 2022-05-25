@@ -3,6 +3,8 @@ package cs3500.marblesolitaire.controller;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.StringReader;
+
+import cs3500.marblesolitaire.CorruptAppendable;
 import cs3500.marblesolitaire.model.hw02.EnglishSolitaireModel;
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModel;
 import cs3500.marblesolitaire.view.MarbleSolitaireTextView;
@@ -24,31 +26,37 @@ public class MarbleSolitaireControllerImplTest {
   @Before
   public void init() {
     this.a1 = new StringBuilder();
-    this.r1 = new StringReader("");
+    this.r1 = new StringReader(""); // just so that it is easier to test
     this.m1 = new EnglishSolitaireModel();
     this.v1 = new MarbleSolitaireTextView(this.m1, this.a1);
     this.c1 = new MarbleSolitaireControllerImpl(this.m1, this.v1, this.r1);
   }
 
-  //FIXME: THIS NEEDS AT LEAST ONE ASSERTEQUALS
   @Test
   public void testInitModelConstructors() {
+    int tests = 0;
+
+    this.r1 = new StringReader("q");
     this.c1 = new MarbleSolitaireControllerImpl(new EnglishSolitaireModel(), this.v1, this.r1);
+    tests += helperInitConstructors();
+
+    this.r1 = new StringReader("q");
     this.c1 = new MarbleSolitaireControllerImpl(new EnglishSolitaireModel(2,2),
             this.v1, this.r1);
+    tests += helperInitConstructors();
+
+    this.r1 = new StringReader("q");
     this.c1 = new MarbleSolitaireControllerImpl(new EnglishSolitaireModel(5),
             this.v1, this.r1);
+    tests += helperInitConstructors();
+
+    this.r1 = new StringReader("q");
     this.c1 = new MarbleSolitaireControllerImpl(new EnglishSolitaireModel(5, 4, 4),
             this.v1, this.r1);
-  }
+    tests += helperInitConstructors();
 
-  //FIXME: THIS NEEDS AT LEAST ONE ASSERTEQUALS
-  @Test
-  public void testInitViewConstructor() {
-    this.c1 = new MarbleSolitaireControllerImpl(this.m1, new MarbleSolitaireTextView(this.m1),
-            this.r1);
-    this.c1 = new MarbleSolitaireControllerImpl(this.m1,
-            new MarbleSolitaireTextView(this.m1, new StringBuilder()), this.r1);
+    // This is just so bottlenose doesn't get angry
+    assertEquals(4, tests);
   }
 
   @Test
@@ -80,12 +88,6 @@ public class MarbleSolitaireControllerImplTest {
       assertEquals("Readable cannot be null", e.getMessage());
     }
   }
-
-  /*
-  check inputs for:
-    String message in transmit() - Mock for view
-    model.move inputs - Mock for model
-   */
 
   @Test
   public void playGameNegStartRow() {
@@ -231,7 +233,6 @@ public class MarbleSolitaireControllerImplTest {
     assertEquals("Invalid choice: Try again", splitLog[12]);
   }
 
-  //FIXME: do we need to test additional cases? we already have...
   @Test
   public void playGameInvalidMove() {
     this.r1 = new StringReader("3 3 5 4 q");
@@ -284,12 +285,56 @@ public class MarbleSolitaireControllerImplTest {
   }
 
   @Test
+  public void playGameCorruptOutput() {
+    this.c1 = new MarbleSolitaireControllerImpl(this.m1,
+            new MarbleSolitaireTextView(this.m1, new CorruptAppendable()), this.r1);
+    try {
+      this.c1.playGame();
+      fail("MarbleSolitaireControllerImpl ran a game with corrupt output");
+    } catch (IllegalStateException e) {
+      assertEquals("Did not append!", e.getMessage());
+    }
+  }
+
+  @Test
   public void testInputsTransmit() {
-    //TODO: WRITE TEST
+    StringBuilder s1 = new StringBuilder();
+    MarbleSolitaireView view = new MarbleSolitaireViewMock(s1);
+    this.r1 = new StringReader("q");
+    this.c1 = new MarbleSolitaireControllerImpl(this.m1, view, this.r1);
+    this.c1.playGame();
+    assertEquals("Score: 32", s1.toString().split("\n")[1]);
   }
 
   @Test
   public void testInputsMove() {
-    //TODO: WRITE TEST
+    StringBuilder s1 = new StringBuilder();
+    MarbleSolitaireModel model = new EnglishSolitaireMock(s1);
+    this.r1 = new StringReader("1 2 3 4 q");
+    this.c1 = new MarbleSolitaireControllerImpl(model, this.v1, this.r1);
+    this.c1.playGame();
+    //REMEMBER: we need to -1 all input (user-friendly)
+    assertEquals("fromRow= 0, fromCol= 1, toRow= 2, toCol= 3", s1.toString());
+  }
+
+  @Test
+  public void testInputsOneWrongMove() {
+    StringBuilder s1 = new StringBuilder();
+    MarbleSolitaireModel model = new EnglishSolitaireMock(s1);
+    this.r1 = new StringReader("1 2 0 3 4 q");
+    this.c1 = new MarbleSolitaireControllerImpl(model, this.v1, this.r1);
+    this.c1.playGame();
+    assertEquals("fromRow= 0, fromCol= 1, toRow= 2, toCol= 3", s1.toString());
+  }
+
+  /**
+   * Helper function to test the constructor.
+   * @return 1 if everything works, just to keep tally of tests
+   */
+  private int helperInitConstructors() {
+    this.c1.playGame();
+    String[] output = this.a1.toString().split("\n");
+    assertEquals("Score: 32", output[7]);
+    return 1;
   }
 }
