@@ -58,13 +58,7 @@ public class TriangleSolitaireModel extends AbstractSolitaireModel
   }
 
   /* TODO:
-      validMove() must be rewritten
       isGameOver() needs to be overriden
-   */
-  /**
-   * Fills the board's 2D-Array with values in an octagonal shape, additionally setting the score.
-   *
-   * @param bottom the size of the bottom row
    */
   @Override
   protected int fillBoard(int bottom) {
@@ -83,14 +77,16 @@ public class TriangleSolitaireModel extends AbstractSolitaireModel
     return marbles;
   }
 
+  //TODO: add in diagonal moves!
   protected void validMove(int fromRow, int fromCol, int toRow, int toCol)
           throws IllegalArgumentException {
 
     int rowDelta = toRow - fromRow;
     int colDelta = toCol - fromCol;
 
-    if ((Math.abs(rowDelta) == 2 && colDelta == 0) ||
-            (Math.abs(colDelta) == 2 && rowDelta == 0)) {
+    if ((Math.abs(rowDelta) == 2 && colDelta == 0) ||              //up and down
+            (Math.abs(colDelta) == 2 && rowDelta == 0) ||          //left and right
+            (colDelta == rowDelta && (Math.abs(rowDelta) == 2))) { //diagonal
 
       // check middle piece, complete motion
       int midRow = (rowDelta / 2) + fromRow;
@@ -101,7 +97,7 @@ public class TriangleSolitaireModel extends AbstractSolitaireModel
         throw new IllegalArgumentException("Middle spot must contain a marble");
       }
     } else if (rowDelta != 0 && colDelta != 0) {
-      throw new IllegalArgumentException("Move cannot be diagonal");
+      throw new IllegalArgumentException("Move must be diagonal or horizontal");
     } else {
       throw new IllegalArgumentException("Move must only cross 2 slots");
     }

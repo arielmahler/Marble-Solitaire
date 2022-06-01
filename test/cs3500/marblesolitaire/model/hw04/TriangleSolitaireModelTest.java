@@ -2,13 +2,10 @@ package cs3500.marblesolitaire.model.hw04;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.Random;
-
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState.SlotState;
-import cs3500.marblesolitaire.view.MarbleSolitaireTextView;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class TriangleSolitaireModelTest {
 
@@ -219,20 +216,15 @@ public class TriangleSolitaireModelTest {
 
 
 
-//  @Test
-//  public void isGameOver() { // FIXME: brokie
-//    int moves[] = {5, 3, 3, 3};
-//    this.e1.move(5, 3, 3, 3);
-//    this.e1.move(2, 3, 4, 3);
-//    this.e1.move(0, 3, 2, 3);
-//    this.e1.move(3, 5, 3, 3);
-//    this.e1.move(3, 2, 3, 4);
-//    this.e1.move(3, 0, 3, 2);
-//    MarbleSolitaireTextView view = new MarbleSolitaireTextView(this.e1);
-//    System.out.println(view.toString());
-//    assertEquals(true, this.e1.isGameOver());
-//    assertEquals(false, this.e2.isGameOver());
-//  }
+  @Test
+  public void isGameOver() {
+    this.e1 = new TriangleSolitaireModel(3);
+    this.e1.move(2, 2, 0, 0);
+    this.e1.move(2, 0, 2, 2);
+    this.e1.move(0, 0, 2, 0);
+    assertEquals(true, this.e1.isGameOver());
+    assertEquals(false, this.e2.isGameOver());
+  }
 
   @Test
   public void getBoardSize() {
@@ -255,7 +247,7 @@ public class TriangleSolitaireModelTest {
       for (int j = 0; j < 5; j++) {
         if (j > i) {
           assertEquals(SlotState.Invalid, this.e1.getSlotAt(i, j));
-        } else if (i == 0 && j == 0) {
+        } else if (i == 0) {
           assertEquals(SlotState.Empty, this.e1.getSlotAt(i, j));
         } else {
           assertEquals(SlotState.Marble, this.e1.getSlotAt(i, j));
@@ -269,7 +261,7 @@ public class TriangleSolitaireModelTest {
     try {
       this.e1.getSlotAt(1000, 1000);
     } catch (IllegalArgumentException e) {
-      assertEquals("Point must be on the grid", e.getMessage());
+      assertEquals("Given position is not on the board", e.getMessage());
     }
   }
 

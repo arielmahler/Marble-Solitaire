@@ -11,7 +11,7 @@ import cs3500.marblesolitaire.view.TriangleSolitaireTextView;
 
 public class main {
   public static void main(String args[]) {
-    MarbleSolitaireModel model = new TriangleSolitaireModel(6, 3, 1);
+    MarbleSolitaireModel model = new TriangleSolitaireModel(3);
     MarbleSolitaireView view = new TriangleSolitaireTextView(model);
     Readable read = new InputStreamReader(System.in);
     MarbleSolitaireController cont = new MarbleSolitaireControllerImpl(model, view, read);

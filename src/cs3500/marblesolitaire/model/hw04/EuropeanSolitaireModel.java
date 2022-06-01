@@ -60,11 +60,6 @@ public class EuropeanSolitaireModel extends AbstractSolitaireModel implements Ma
     build(boardSize, sideLen, row, col);
   }
 
-  /**
-   * Fills the board's 2D-Array with values in an octagonal shape, additionally setting the score.
-   *
-   * @param sideLen the given side length
-   */
   @Override
   protected int fillBoard(int sideLen) {
     int boardLen = (3 * sideLen) - 2;

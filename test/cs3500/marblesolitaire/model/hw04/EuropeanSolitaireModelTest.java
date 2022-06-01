@@ -240,7 +240,7 @@ public class EuropeanSolitaireModelTest {
     try {
       this.e1.getSlotAt(1000, 1000);
     } catch (IllegalArgumentException e) {
-      assertEquals("Point must be on the grid", e.getMessage());
+      assertEquals("Given position is not on the board", e.getMessage());
     }
   }
 
