@@ -6,6 +6,8 @@ import java.io.IOException;
 import cs3500.marblesolitaire.CorruptAppendable;
 import cs3500.marblesolitaire.model.hw02.EnglishSolitaireModel;
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModel;
+import cs3500.marblesolitaire.model.hw04.EuropeanSolitaireModel;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 

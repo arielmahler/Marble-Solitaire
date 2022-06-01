@@ -6,17 +6,16 @@ package cs3500.marblesolitaire.model.hw02;
  */
 public class EnglishSolitaireModel implements MarbleSolitaireModel {
 
-  private SlotState[][] board; // the game board model
+  protected SlotState[][] board; // the game board model
 
-  private final int boardSize; //The longest edge of the board
-  private int marbles; // the number of marbles present on the board
+  protected final int boardSize; //The longest edge of the board
+  protected int marbles; // the number of marbles present on the board
 
   /**
    * Creates a {@code EnglishSolitaireModel} based on default specifications
    * (arm thickness 3, center slot empty).
    */
   public EnglishSolitaireModel() {
-
     this.fillBoard(3);
     this.board[3][3] = SlotState.Empty;
     this.marbles -= 1;
@@ -225,7 +224,7 @@ public class EnglishSolitaireModel implements MarbleSolitaireModel {
    *
    * @param armThickness the given arm thickness
    */
-  private void fillBoard(int armThickness) {
+  protected void fillBoard(int armThickness) {
     int boardLen = (3 * armThickness) - 2;
     int armStart = armThickness - 1;
     int armEnd = armThickness * 2 - 1;
