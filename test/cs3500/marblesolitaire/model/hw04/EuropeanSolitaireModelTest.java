@@ -185,7 +185,7 @@ public class EuropeanSolitaireModelTest {
       this.e1.move(2, 2, 3, 3);
       fail("EuropeanSolitaireModel successfully moved diagonally");
     } catch (IllegalArgumentException e) {
-      assertEquals("Move cannot be diagonal", e.getMessage());
+      assertEquals("Invalid move direction", e.getMessage());
     }
   }
 

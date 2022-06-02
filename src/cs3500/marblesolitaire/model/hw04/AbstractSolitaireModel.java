@@ -64,14 +64,27 @@ public abstract class AbstractSolitaireModel implements MarbleSolitaireModel {
     int rowDelta = toRow - fromRow;
     int colDelta = toCol - fromCol;
 
-    this.validMove(fromRow, fromCol, toRow, toCol);
-    //If we are here, the move is already deemed valid: we can do it
-    int midRow = (rowDelta / 2) + fromRow;
-    int midCol = (colDelta / 2) + fromCol;
-    this.board[fromRow][fromCol] = SlotState.Empty;
-    this.board[toRow][toCol] = SlotState.Marble;
-    this.board[midRow][midCol] = SlotState.Empty;
-    this.marbles--;
+    if (this.validMove(rowDelta, colDelta)) {
+
+      // check middle piece, complete motion
+      int midRow = (rowDelta / 2) + fromRow;
+      int midCol = (colDelta / 2) + fromCol;
+      SlotState mid = this.getSlotAt(midRow, midCol);
+
+      if (mid != SlotState.Marble) {
+        throw new IllegalArgumentException("Middle spot must contain a marble");
+      }
+
+      //If we are here, the move is already deemed valid: we can do it
+      this.board[fromRow][fromCol] = SlotState.Empty;
+      this.board[toRow][toCol] = SlotState.Marble;
+      this.board[midRow][midCol] = SlotState.Empty;
+      this.marbles--;
+    } else if (rowDelta != 0 && colDelta != 0) {
+      throw new IllegalArgumentException("Invalid move direction");
+    } else {
+      throw new IllegalArgumentException("Move must only cross 2 slots");
+    }
   }
 
   @Override
@@ -143,17 +156,15 @@ public abstract class AbstractSolitaireModel implements MarbleSolitaireModel {
   protected abstract int fillBoard(int size);
 
   /**
-   * Will just run if the given positions constitutes a valid move, else it will throw error.
-   * @param fromRow the row number of the position to be moved from
-   *                (starts at 0)
-   * @param fromCol the column number of the position to be moved from
-   *                (starts at 0)
-   * @param toRow   the row number of the position to be moved to
-   *                (starts at 0)
-   * @param toCol   the column number of the position to be moved to
-   *                (starts at 0)
-   * @throws IllegalArgumentException if the two positions cannot be used to make a valid move
+   * Evaluates row and column deltas, then uses them to see if it constitutes a valid move.
+   * @param rowDelta difference between the from row and to row
+   * @param colDelta difference between the from column and to column
+   * @return true if case is satisfied, false otherwise
    */
-  protected abstract void validMove(int fromRow, int fromCol, int toRow, int toCol)
-          throws IllegalArgumentException;
+  // For right now, I can further reduce the amount of code used if I make the default (this impl)
+  // just the code for European and English solitaire.
+  protected boolean validMove(int rowDelta, int colDelta) {
+    return (Math.abs(rowDelta) == 2 && colDelta == 0) ||
+            (Math.abs(colDelta) == 2 && rowDelta == 0);
+  }
 }

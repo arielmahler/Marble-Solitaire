@@ -57,6 +57,29 @@ public class TriangleSolitaireModel extends AbstractSolitaireModel
     build(dimensions, dimensions, row, col);
   }
 
+  /**
+   * Builder for the {@code TriangleSolitaireModel} class.
+   */
+  public static class TriangleModelBuilder extends SolitaireBuilder<TriangleModelBuilder>{
+
+    /**
+     * Creates a {@code TriangleModelBuilder} with default init values.
+     */
+    public TriangleModelBuilder() {
+      this.size = 5;
+      this.row = 0;
+      this.col = 0;
+    }
+
+    protected TriangleModelBuilder returnBuilder() {
+      return this;
+    }
+
+    protected TriangleSolitaireModel returnModel() {
+      return new TriangleSolitaireModel(this.size, this.row, this.col);
+    }
+  }
+
   /* TODO:
       isGameOver() needs to be overriden
    */
@@ -77,29 +100,9 @@ public class TriangleSolitaireModel extends AbstractSolitaireModel
     return marbles;
   }
 
-  //TODO: add in diagonal moves!
-  protected void validMove(int fromRow, int fromCol, int toRow, int toCol)
-          throws IllegalArgumentException {
-
-    int rowDelta = toRow - fromRow;
-    int colDelta = toCol - fromCol;
-
-    if ((Math.abs(rowDelta) == 2 && colDelta == 0) ||              //up and down
-            (Math.abs(colDelta) == 2 && rowDelta == 0) ||          //left and right
-            (colDelta == rowDelta && (Math.abs(rowDelta) == 2))) { //diagonal
-
-      // check middle piece, complete motion
-      int midRow = (rowDelta / 2) + fromRow;
-      int midCol = (colDelta / 2) + fromCol;
-      SlotState mid = this.getSlotAt(midRow, midCol);
-
-      if (mid != SlotState.Marble) {
-        throw new IllegalArgumentException("Middle spot must contain a marble");
-      }
-    } else if (rowDelta != 0 && colDelta != 0) {
-      throw new IllegalArgumentException("Move must be diagonal or horizontal");
-    } else {
-      throw new IllegalArgumentException("Move must only cross 2 slots");
-    }
+  @Override
+  protected boolean validMove(int rowDelta, int colDelta) {
+    return super.validMove(rowDelta, colDelta) || //up, down, left, right
+            (colDelta == rowDelta && (Math.abs(rowDelta) == 2)); //diagonal
   }
 }

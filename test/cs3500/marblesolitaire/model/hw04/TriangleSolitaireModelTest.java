@@ -199,7 +199,7 @@ public class TriangleSolitaireModelTest {
       this.e2.move(4, 0, 2, 2);
       fail("TriangleSolitaireModel successfully moved across wrong diagonal");
     } catch (IllegalArgumentException e) {
-      assertEquals("Move must be diagonal or horizontal", e.getMessage());
+      assertEquals("Invalid move direction", e.getMessage());
     }
   }
 
@@ -210,7 +210,7 @@ public class TriangleSolitaireModelTest {
       this.e4.move(2, 2, 4, 0);
       fail("TriangleSolitaireModel successfully moved across wrong diagonal");
     } catch (IllegalArgumentException e) {
-      assertEquals("Move must be diagonal or horizontal", e.getMessage());
+      assertEquals("Invalid move direction", e.getMessage());
     }
   }
 

@@ -50,7 +50,7 @@ public class EnglishSolitaireModelTest {
       this.e2 = new EnglishSolitaireModel(5, 5);
       fail("Second Constructor Created EnglishSolitaireModel with invalid cell position");
     } catch (IllegalArgumentException e) {
-      assertEquals("Invalid empty cell position (5,5)", e.getMessage());
+      assertEquals("Given position (5,5) is invalid", e.getMessage());
     }
   }
 
@@ -80,7 +80,7 @@ public class EnglishSolitaireModelTest {
       this.e4 = new EnglishSolitaireModel(5, 3, 3);
       fail("Fourth Constructor created EnglishSolitaireModel with invalid cell position");
     } catch (IllegalArgumentException e) {
-      assertEquals("Invalid empty cell position (3,3)", e.getMessage());
+      assertEquals("Given position (3,3) is invalid", e.getMessage());
     }
   }
 
@@ -136,7 +136,7 @@ public class EnglishSolitaireModelTest {
       this.e1.move(30, 2, 3, 3);
       fail("EnglishSolitaireModel successfully moved from nonexistent slot");
     } catch (IllegalArgumentException e) {
-      assertEquals("From point must be on grid", e.getMessage());
+      assertEquals("Given position is not on the board", e.getMessage());
     }
   }
 
@@ -146,7 +146,7 @@ public class EnglishSolitaireModelTest {
       this.e1.move(3, 1, 13, 3);
       fail("EnglishSolitaireModel successfully moved to nonexistent slot");
     } catch (IllegalArgumentException e) {
-      assertEquals("To point must be on grid", e.getMessage());
+      assertEquals("Given position is not on the board", e.getMessage());
     }
   }
 
@@ -186,7 +186,7 @@ public class EnglishSolitaireModelTest {
       this.e1.move(2, 2, 3, 3);
       fail("EnglishSolitaireModel successfully moved diagonally");
     } catch (IllegalArgumentException e) {
-      assertEquals("Move cannot be diagonal", e.getMessage());
+      assertEquals("Invalid move direction", e.getMessage());
     }
   }
 

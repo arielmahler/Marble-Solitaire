@@ -30,10 +30,11 @@ public class TriangleSolitaireTextView implements MarbleSolitaireView {
     //The longest edge of the board (and by proxy, the array)
     int boardSize = this.board.getBoardSize();
     StringBuilder image = new StringBuilder();
-    String spaces = "             "; //for spacing!
-
     for (int i = 0; i < boardSize; i++) {
-      image.append(spaces, 0, boardSize - 1 - i);
+      String padding = "%" + (boardSize - 1 - i) + "s";
+      if ((boardSize - 1 - i) > 0) {
+        image.append(String.format(padding, " "));
+      }
       for (int j = 0; j < boardSize; j++) {
         MarbleSolitaireModelState.SlotState currSlot = this.board.getSlotAt(i, j);
         switch (currSlot) {

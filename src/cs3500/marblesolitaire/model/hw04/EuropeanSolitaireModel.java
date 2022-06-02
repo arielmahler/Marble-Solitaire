@@ -60,6 +60,30 @@ public class EuropeanSolitaireModel extends AbstractSolitaireModel implements Ma
     build(boardSize, sideLen, row, col);
   }
 
+  /**
+   * Builder for the {@code EuropeanSolitaireModel} class.
+   */
+  public static class EuropeanModelBuilder extends SolitaireBuilder<EuropeanModelBuilder>{
+
+    /**
+     * Creates a {@code EuropeanModelBuilder} with default init values.
+     */
+    public EuropeanModelBuilder() {
+      this.size = 3;
+    }
+
+    protected EuropeanModelBuilder returnBuilder() {
+      return this;
+    }
+
+    protected EuropeanSolitaireModel returnModel() {
+      if (this.row == 0 || this.col == 0) { //never initialized
+        return new EuropeanSolitaireModel(this.size);
+      }
+      return new EuropeanSolitaireModel(this.size, this.row, this.col);
+    }
+  }
+
   @Override
   protected int fillBoard(int sideLen) {
     int boardLen = (3 * sideLen) - 2;
@@ -88,30 +112,5 @@ public class EuropeanSolitaireModel extends AbstractSolitaireModel implements Ma
       }
     }
     return marbles;
-  }
-
-
-  protected void validMove(int fromRow, int fromCol, int toRow, int toCol)
-          throws IllegalArgumentException {
-
-    int rowDelta = toRow - fromRow;
-    int colDelta = toCol - fromCol;
-
-    if ((Math.abs(rowDelta) == 2 && colDelta == 0) ||
-            (Math.abs(colDelta) == 2 && rowDelta == 0)) {
-
-      // check middle piece, complete motion
-      int midRow = (rowDelta / 2) + fromRow;
-      int midCol = (colDelta / 2) + fromCol;
-      SlotState mid = this.getSlotAt(midRow, midCol);
-
-      if (mid != SlotState.Marble) {
-        throw new IllegalArgumentException("Middle spot must contain a marble");
-      }
-    } else if (rowDelta != 0 && colDelta != 0) {
-      throw new IllegalArgumentException("Move cannot be diagonal");
-    } else {
-      throw new IllegalArgumentException("Move must only cross 2 slots");
-    }
   }
 }
