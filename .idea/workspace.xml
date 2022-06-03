@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="---- ASSIGNMENT 2 ----&#10;Complete?">
-      <change afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/AbstractSolitaireModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/EuropeanSolitaireModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/TriangleSolitaireModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/view/TriangleSolitaireTextView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Hw04TypeChecks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw04/EuropeanSolitaireModelTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw04/TriangleSolitaireModelTest.java" afterDir="false" />
+    <list default="true" id="8c8eaecc-93cd-4b2e-8f0c-656c8c6e41e4" name="Changes" comment="---- ASSIGNMENT 3 ----&#10;Main implemented using builders, will probably need to test this further.&#10;&#10;TODO:&#10;- override the isGameOver() function for TriangleSolitaireModel&#10;- complete testing for builders&#10;- abstract what you can from tests&#10;- testing main? (I don't think this is possible)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw02/EnglishSolitaireModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/AbstractSolitaireModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/AbstractSolitaireModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/EuropeanSolitaireModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/EuropeanSolitaireModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/TriangleSolitaireModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/model/hw04/TriangleSolitaireModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/marblesolitaire/view/TriangleSolitaireTextView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/marblesolitaire/view/TriangleSolitaireTextView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Hw04TypeChecks.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Hw04TypeChecks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw04/EuropeanSolitaireModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw04/EuropeanSolitaireModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw04/TriangleSolitaireModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw04/TriangleSolitaireModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/marblesolitaire/view/MarbleSolitaireTextViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,23 +73,98 @@
       <recent name="cs3500.marblesolitaire.model.hw02" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TriangleSolitaireModelTest">
+  <component name="RunManager" selected="JUnit.EuropeanSolitaireModelTest.isGameOver">
+    <configuration name="English big" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="english -size 11" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="English default" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="english" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="English size 3" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="main" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Assignment1" />
       <option name="PROGRAM_PARAMETERS" value="english -size 3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main" />
+    <configuration name="European big" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="european -size 11" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EuropeanSolitaireModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="European default" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="european" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="European hole 1 1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="european -hole 1 1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Triangle 2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="triangular -size 2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Triangle 3" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="triangular -size 3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Triangular big" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="triangular -size 15" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Triangular default" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Assignment1" />
+      <option name="PROGRAM_PARAMETERS" value="triangular" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Assignment1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EuropeanSolitaireModelTest.isGameOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
@@ -100,43 +174,29 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw04" />
       <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw04.EuropeanSolitaireModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TriangleSolitaireModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Assignment1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw04.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw04" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw04.TriangleSolitaireModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TriangleSolitaireModelTest.moveDownCol" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Assignment1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw04.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw04" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw04.TriangleSolitaireModelTest" />
-      <option name="METHOD_NAME" value="moveDownCol" />
+      <option name="METHOD_NAME" value="isGameOver" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TriangleSolitaireModelTest.moveDownRow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MarbleSolitaireTextViewTest.testToStringEuropean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.marblesolitaire.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.view" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.view.MarbleSolitaireTextViewTest" />
+      <option name="METHOD_NAME" value="testToStringEuropean" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriangleSolitaireModelTest.isGameOverDiag" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <extension name="coverage">
         <pattern>
@@ -146,27 +206,52 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw04" />
       <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw04.TriangleSolitaireModelTest" />
-      <option name="METHOD_NAME" value="moveDownRow" />
+      <option name="METHOD_NAME" value="isGameOverDiag" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriangleSolitaireModelTest.isGameOverDiagUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.marblesolitaire.model.hw04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.marblesolitaire.model.hw04" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.marblesolitaire.model.hw04.TriangleSolitaireModelTest" />
+      <option name="METHOD_NAME" value="isGameOverDiagUp" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Triangle 2" />
       <item itemvalue="Application.English size 3" />
-      <item itemvalue="Application.main" />
-      <item itemvalue="JUnit.EuropeanSolitaireModelTest" />
-      <item itemvalue="JUnit.TriangleSolitaireModelTest" />
-      <item itemvalue="JUnit.TriangleSolitaireModelTest.moveDownCol" />
-      <item itemvalue="JUnit.TriangleSolitaireModelTest.moveDownRow" />
+      <item itemvalue="Application.Triangular default" />
+      <item itemvalue="Application.Triangle 3" />
+      <item itemvalue="Application.English default" />
+      <item itemvalue="Application.European default" />
+      <item itemvalue="Application.European hole 1 1" />
+      <item itemvalue="Application.European big" />
+      <item itemvalue="Application.English big" />
+      <item itemvalue="Application.Triangular big" />
+      <item itemvalue="JUnit.EuropeanSolitaireModelTest.isGameOver" />
+      <item itemvalue="JUnit.MarbleSolitaireTextViewTest.testToStringEuropean" />
+      <item itemvalue="JUnit.TriangleSolitaireModelTest.isGameOverDiag" />
+      <item itemvalue="JUnit.TriangleSolitaireModelTest.isGameOverDiagUp" />
+      <item itemvalue="JUnit.All in Assignment1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TriangleSolitaireModelTest" />
-        <item itemvalue="JUnit.EuropeanSolitaireModelTest" />
-        <item itemvalue="Application.main" />
-        <item itemvalue="JUnit.TriangleSolitaireModelTest.moveDownCol" />
-        <item itemvalue="JUnit.TriangleSolitaireModelTest.moveDownRow" />
+        <item itemvalue="JUnit.EuropeanSolitaireModelTest.isGameOver" />
+        <item itemvalue="JUnit.MarbleSolitaireTextViewTest.testToStringEuropean" />
+        <item itemvalue="JUnit.TriangleSolitaireModelTest.isGameOverDiagUp" />
+        <item itemvalue="JUnit.TriangleSolitaireModelTest.isGameOverDiag" />
+        <item itemvalue="JUnit.All in Assignment1" />
       </list>
     </recent_temporary>
   </component>
@@ -192,6 +277,7 @@
       <workItem from="1653511875346" duration="1039000" />
       <workItem from="1653924489757" duration="21157000" />
       <workItem from="1654099518880" duration="2645000" />
+      <workItem from="1654196405561" duration="8540000" />
     </task>
     <task id="LOCAL-00001" summary="Started, implemented Constructors and move function *UNTESTED*">
       <created>1652484253150</created>
@@ -235,7 +321,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653512905954</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="---- ASSIGNMENT 3 ----&#10;Tests are all passing, however there still needs to be a check for diagonal movement from TriangeSolitaire gameOver.">
+      <created>1654107870269</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654107870269</updated>
+    </task>
+    <task id="LOCAL-00008" summary="---- ASSIGNMENT 3 ----&#10;Main implemented using builders, will probably need to test this further.&#10;&#10;TODO:&#10;- override the isGameOver() function for TriangleSolitaireModel&#10;- complete testing for builders&#10;- abstract what you can from tests&#10;- testing main? (I don't think this is possible)">
+      <created>1654195783005</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654195783005</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +360,9 @@
     <MESSAGE value="---- ASSIGNMENT 2 ----&#10;&#10;MarbleSolitaireTextView:&#10;first, second constructor tests&#10;renderBoard tests&#10;renderMessage tests&#10;&#10;MarbleSolitaireControllerImpl:&#10;first constructor tests&#10;playGame() tests&#10;- investigate &quot;q&quot; functionality&#10;playGame() tests" />
     <MESSAGE value="---- ASSIGNMENT 2 ----&#10;All that is left is to double check ControllerImplTest" />
     <MESSAGE value="---- ASSIGNMENT 2 ----&#10;Complete?" />
-    <option name="LAST_COMMIT_MESSAGE" value="---- ASSIGNMENT 2 ----&#10;Complete?" />
+    <MESSAGE value="---- ASSIGNMENT 3 ----&#10;Tests are all passing, however there still needs to be a check for diagonal movement from TriangeSolitaire gameOver." />
+    <MESSAGE value="---- ASSIGNMENT 3 ----&#10;Main implemented using builders, will probably need to test this further.&#10;&#10;TODO:&#10;- override the isGameOver() function for TriangleSolitaireModel&#10;- complete testing for builders&#10;- abstract what you can from tests&#10;- testing main? (I don't think this is possible)" />
+    <option name="LAST_COMMIT_MESSAGE" value="---- ASSIGNMENT 3 ----&#10;Main implemented using builders, will probably need to test this further.&#10;&#10;TODO:&#10;- override the isGameOver() function for TriangleSolitaireModel&#10;- complete testing for builders&#10;- abstract what you can from tests&#10;- testing main? (I don't think this is possible)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -269,7 +371,15 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/cs3500/marblesolitaire/model/hw04/TriangleSolitaireModelTest.java</url>
+          <line>243</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Assignment1$English_big.ic" NAME="English big Coverage Results" MODIFIED="1654195359150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

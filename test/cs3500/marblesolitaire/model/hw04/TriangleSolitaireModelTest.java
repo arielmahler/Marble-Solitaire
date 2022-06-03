@@ -7,6 +7,9 @@ import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState.SlotState;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+/**
+ * Class representing the tests for the {@code TriangleSolitaireModel} class and methods.
+ */
 public class TriangleSolitaireModelTest {
 
   TriangleSolitaireModel e1;
@@ -224,6 +227,21 @@ public class TriangleSolitaireModelTest {
     this.e1.move(0, 0, 2, 0);
     assertEquals(true, this.e1.isGameOver());
     assertEquals(false, this.e2.isGameOver());
+  }
+
+  @Test
+  public void isGameOverDiagDown() {
+    this.e1 = new TriangleSolitaireModel(3);
+    this.e1.move(2, 0, 0, 0);
+    this.e1.move(2, 2, 2, 0);
+    assertEquals(false, this.e1.isGameOver());
+  }
+
+  @Test
+  public void isGameOverDiagUp() {
+    this.e1 = new TriangleSolitaireModel(3, 2, 0);
+    this.e1.move(0, 0, 2, 0);
+    assertEquals(false, this.e1.isGameOver());
   }
 
   @Test

@@ -5,9 +5,8 @@ import org.junit.Test;
 
 import java.util.Random;
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModelState.SlotState;
-import cs3500.marblesolitaire.view.MarbleSolitaireTextView;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Class representing the tests for the {@code EuropeanSolitaireModel} class and methods.
@@ -189,22 +188,21 @@ public class EuropeanSolitaireModelTest {
     }
   }
 
-// FIXME: brokie
-
-//  @Test
-//  public void isGameOver() {
-//    int moves[] = {5, 3, 3, 3};
-//    this.e1.move(5, 3, 3, 3);
-//    this.e1.move(2, 3, 4, 3);
-//    this.e1.move(0, 3, 2, 3);
-//    this.e1.move(3, 5, 3, 3);
-//    this.e1.move(3, 2, 3, 4);
-//    this.e1.move(3, 0, 3, 2);
-//    MarbleSolitaireTextView view = new MarbleSolitaireTextView(this.e1);
-//    System.out.println(view.toString());
-//    assertEquals(true, this.e1.isGameOver());
-//    assertEquals(false, this.e2.isGameOver());
-//  }
+  @Test
+  public void isGameOver() {
+    //I hate testing this
+    int[] moves = {5, 3, 3, 3,    2, 3, 4, 3,    0, 3, 2, 3,    3, 5, 3, 3,    3, 2, 3, 4,
+                   3, 0, 3, 2,    1, 1, 3, 1,    1, 5, 3, 5,    4, 1, 2, 1,    4, 5, 2, 5,
+                   5, 1, 5, 3,    5, 4, 5, 2,    3, 4, 5, 4,    4, 2, 4, 4,    5, 4, 3, 4,
+                   2, 2, 4, 2,    2, 4, 4, 4,    0, 2, 2, 2,    0, 4, 2, 4,    5, 2, 3, 2,
+                   3, 2, 1, 2,    2, 0, 2, 2,    1, 2, 3, 2,    2, 4, 2, 2,    2, 2, 4, 2,
+                   2, 6, 2, 4,    4, 6, 2, 6};
+    for (int i = 0; i < moves.length / 4; i++) {
+      this.e1.move(moves[4 * i], moves[4 * i + 1], moves[4 * i + 2], moves[4 * i + 3]);
+    }
+    assertEquals(true, this.e1.isGameOver());
+    assertEquals(false, this.e2.isGameOver());
+  }
 
   @Test
   public void getBoardSize() {

@@ -110,7 +110,7 @@ public class MarbleSolitaireTextViewTest {
   }
 
   @Test
-  public void testToString() {
+  public void testToStringEnglish() {
     assertEquals("    O O O\n    O O O\nO O O O O O O\n"
             + "O O O _ O O O\nO O O O O O O\n    O O O\n    O O O", this.t1.toString());
     assertEquals("    O O O\n    O O O\nO O _ O O O O\n"
@@ -124,6 +124,30 @@ public class MarbleSolitaireTextViewTest {
             + "        O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
             + "O O O O O O O O O O O O O\nO O O O O O O _ O O O O O\nO O O O O O O O O O O O O\n"
             + "        O O O O O\n        O O O O O\n        O O O O O\n        O O O O O",
+            this.t4.toString());
+  }
+
+  @Test
+  public void testToStringEuropean() {
+    this.t1 = new MarbleSolitaireTextView(new EuropeanSolitaireModel(), this.a1);
+    this.t2 = new MarbleSolitaireTextView(new EuropeanSolitaireModel(2, 2), this.a2);
+    this.t3 = new MarbleSolitaireTextView(new EuropeanSolitaireModel(5), this.a3);
+    this.t4 = new MarbleSolitaireTextView(new EuropeanSolitaireModel(5, 8, 10),
+            this.a4);
+    assertEquals("    O O O\n  O O O O O\nO O O O O O O\n"
+            + "O O O _ O O O\nO O O O O O O\n  O O O O O\n    O O O", this.t1.toString());
+    assertEquals("    O O O\n  O O O O O\nO O _ O O O O\n"
+            + "O O O O O O O\nO O O O O O O\n  O O O O O\n    O O O", this.t2.toString());
+    assertEquals("        O O O O O\n      O O O O O O O\n    O O O O O O O O O\n"
+            + "  O O O O O O O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
+            + "O O O O O O _ O O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
+            + "  O O O O O O O O O O O\n    O O O O O O O O O\n      O O O O O O O\n" +
+            "        O O O O O", this.t3.toString());
+    assertEquals("        O O O O O\n      O O O O O O O\n    O O O O O O O O O\n"
+            + "  O O O O O O O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O O O O\n"
+            + "O O O O O O O O O O O O O\nO O O O O O O O O O O O O\nO O O O O O O O O O _ O O\n"
+            + "  O O O O O O O O O O O\n    O O O O O O O O O\n      O O O O O O O\n" +
+            "        O O O O O",
             this.t4.toString());
   }
 

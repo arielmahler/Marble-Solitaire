@@ -2,6 +2,9 @@ package cs3500.marblesolitaire.model.hw04;
 
 import cs3500.marblesolitaire.model.hw02.MarbleSolitaireModel;
 
+/**
+ * The abstract class for Solitaire game models containing similar methods and parameters.
+ */
 public abstract class AbstractSolitaireModel implements MarbleSolitaireModel {
 
   protected SlotState[][] board; // the game board model
@@ -16,7 +19,7 @@ public abstract class AbstractSolitaireModel implements MarbleSolitaireModel {
    * @param row the row of the starting position
    * @param col the column of the starting position
    * @throws IllegalArgumentException if the given row and column do not correspond to a valid
-   * spot, whether that be because it is off the board or it is in an invalid spot.
+   *     spot, whether that be because it is off the board or it is in an invalid spot
    */
   protected void build(int boardSize, int size, int row, int col) throws
           IllegalArgumentException {

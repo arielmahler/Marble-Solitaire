@@ -38,7 +38,7 @@ public class EuropeanSolitaireModel extends AbstractSolitaireModel implements Ma
    * @param row the given row
    * @param col the given column
    * @throws IllegalArgumentException if the row and column do not correspond to a
-   * valid start position.
+   *     valid start position
    */
   public EuropeanSolitaireModel(int row, int col) throws IllegalArgumentException {
     build(7, 3, row, col);
@@ -63,7 +63,7 @@ public class EuropeanSolitaireModel extends AbstractSolitaireModel implements Ma
   /**
    * Builder for the {@code EuropeanSolitaireModel} class.
    */
-  public static class EuropeanModelBuilder extends SolitaireBuilder<EuropeanModelBuilder>{
+  public static class EuropeanModelBuilder extends SolitaireBuilder<EuropeanModelBuilder> {
 
     /**
      * Creates a {@code EuropeanModelBuilder} with default init values.
